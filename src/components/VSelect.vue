@@ -6,7 +6,9 @@
         v-for="option in options"
         :value="option.value"
         :key="`${option.label}_${index}`"
-      >{{ option.label }}</option>
+      >
+        {{ option.label }}
+      </option>
     </select>
   </label>
 </template>
@@ -15,16 +17,15 @@ export default {
   props: {
     label: {
       type: String,
-      default: null
+      default: null,
     },
     value: {
-      type: Object,
-      default: null
+      default: null,
     },
     options: {
       type: Array,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     selected: {
@@ -33,8 +34,8 @@ export default {
       },
       set(value) {
         this.$emit('input', value)
-      }
-    }
+      },
+    },
   },
 }
 </script>

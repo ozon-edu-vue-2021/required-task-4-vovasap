@@ -11,7 +11,7 @@
 </template>
 <script>
 export default {
-  name: "VInput",
+  name: 'VInput',
   props: {
     type: {
       type: String,
@@ -20,18 +20,19 @@ export default {
         return ['text', 'number', 'email', 'date'].includes(value)
       }
     },
+    },
     label: {
       type: String,
-      default: null
+      default: null,
     },
     value: {
       type: [String, Number],
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
-      innerValue: this.value
+      innerValue: this.value,
     }
   },
 }
