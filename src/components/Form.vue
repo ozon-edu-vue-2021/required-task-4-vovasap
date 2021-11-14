@@ -1,17 +1,35 @@
 <template>
-  <div class="form"></div>
+  <div class="form">
+    <PersonalDataForm label="Name" v-model="personalData" />
+  </div>
 </template>
 
 <script>
+import PersonalDataForm from '@/components/PersonalDataForm.vue'
+
 export default {
+  components: {
+    PersonalDataForm,
+  },
   data() {
-    return {};
+    return {
+      personalData: {
+        firsName: '',
+        lastName: '',
+        patronymic: '',
+        birthDay: '',
+        email: '',
+        gender: '',
+      },
+    }
   },
   methods: {},
-};
-</script>
-
-<style scoped>
-.form {
+  computed: {
+    personProfile() {
+      return {
+        ...this.personalData,
+      }
+    },
+  },
 }
-</style>
+</script>
