@@ -3,7 +3,7 @@
     {{ label }}
     <select v-model="selected" class="input__input">
       <option
-        v-for="option in options"
+        v-for="(option, index) in options"
         :value="option.value"
         :key="`${option.label}_${index}`"
       >
@@ -20,6 +20,7 @@ export default {
       default: null,
     },
     value: {
+      type: [Object, String],
       default: null,
     },
     options: {
