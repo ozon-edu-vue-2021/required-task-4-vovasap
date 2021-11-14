@@ -21,23 +21,24 @@
 </template>
 <script>
 export default {
-  name: "VRadio",
+  name: 'VRadio',
   props: {
     title: {
       type: String,
-      default: null
+      default: null,
     },
     value: {
       type: [String, Boolean],
+      default: null,
     },
     options: {
       type: Array,
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
-      innerValue: this.value
+      innerValue: this.value,
     }
   },
 }
@@ -71,7 +72,7 @@ export default {
   padding-right: 0;
 }
 .radio__input + span::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   display: inline-block;
