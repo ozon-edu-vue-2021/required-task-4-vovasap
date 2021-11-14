@@ -1,6 +1,6 @@
 <template>
   <VFormGroup title="Личные данные">
-    <div class="personal-data__name">
+    <div class="d-flex">
       <VInput v-model="personalData.lastName" label="Фамилия" type="text" />
       <VInput v-model="personalData.firsName" label="Имя" type="text" />
       <VInput v-model="personalData.patronymic" label="Отчество" type="text" />
@@ -51,9 +51,3 @@ export default {
   },
 }
 </script>
-<style>
-.personal-data__name {
-  display: flex;
-  gap: 5px;
-}
-</style>
