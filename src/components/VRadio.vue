@@ -28,8 +28,7 @@ export default {
       default: null
     },
     value: {
-      type: String,
-      default: null
+      type: [String, Boolean],
     },
     options: {
       type: Array,
