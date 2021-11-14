@@ -3,9 +3,11 @@
     {{ label }}
     <input
       class="input__input"
-      :type="type"
+      :type="type === 'number' ? 'text' : type"
       v-model="innerValue"
-      @input="$emit('input', innerValue)"
+      @input="
+        $emit('input', type === 'number' ? Number(innerValue) : innerValue)
+      "
     />
   </label>
 </template>
@@ -18,8 +20,7 @@ export default {
       default: 'text',
       validator: (value) => {
         return ['text', 'number', 'email', 'date'].includes(value)
-      }
-    },
+      },
     },
     label: {
       type: String,
