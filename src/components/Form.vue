@@ -1,5 +1,5 @@
 <template>
-  <div class="form">
+  <form class="form" @submit.prevent="sendData">
     <PersonalDataForm label="Name" v-model="personalData" />
     <PassportDataForm label="Name" v-model="passportData" />
     <VRadio
@@ -11,10 +11,11 @@
       title="Меняли ли фамилию или имя?"
     />
     <div v-if="isChangedName" class="d-flex">
-      <VInput v-model="personalData.prevLastName" label="Фамилия" type="text" />
-      <VInput v-model="personalData.prevFirsName" label="Имя" type="text" />
+      <VInput v-model="prevLastName" label="Фамилия" type="text" />
+      <VInput v-model="prevFirstName" label="Имя" type="text" />
     </div>
-  </div>
+    <input class="button__input" value="Отправить" type="submit" />
+  </form>
 </template>
 
 <script>
@@ -50,18 +51,43 @@ export default {
         latinLastName: '',
       },
       isChangedName: false,
-      prevFirsName: '',
+      prevFirstName: '',
       prevLastName: '',
     }
   },
-  methods: {},
-  computed: {
-    personProfile() {
-      return {
-        ...this.personalData,
-        ...this.passportData,
+  methods: {
+    sendData() {
+      let passportData = null
+      let changedName = null
+      if(this.passportData.citizenship === 'Russia' || this.passportData.citizenship === null) {
+        passportData = {
+          passportSerialNumber: this.passportData.passportSerialNumber,
+          passportReleaseDate: this.passportData.passportReleaseDate,
+        }
+      } else {
+        passportData = {
+          passportReleaseCountry:this.passportData.passportReleaseCountry,
+          passportType:this.passportData.passportType,
+          latinFirstName:this.passportData.latinFirstName,
+          latinLastName:this.passportData.latinLastName,
+        }
       }
-    },
+      if (this.isChangedName) {
+        changedName = {
+          prevFirstName: this.prevFirstName,
+          prevLastName: this.prevLastName,
+        }
+      }
+      
+      console.log('body response', {
+        ...this.personalData,
+        ...passportData,
+        citizenship: this.passportData.citizenship,
+        passportNumber:  this.passportData.passportNumber,
+        ...changedName
+      });
+      
+    }
   },
 }
 </script>
