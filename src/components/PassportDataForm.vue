@@ -47,6 +47,7 @@
         <VSelect
           v-model="passportData.passportReleaseCountry"
           :options="passportReleaseCountryOptions"
+          is-flags
           label="Страна выдачи"
         />
         <VSelect
