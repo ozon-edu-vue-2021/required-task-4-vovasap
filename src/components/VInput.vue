@@ -38,28 +38,3 @@ export default {
   },
 }
 </script>
-<style>
-.input__input {
-  display: block;
-  width: 100%;
-  border: none;
-  background: transparent;
-  outline: none;
-}
-.input__label {
-  display: block;
-  padding: 4px;
-  width: 100%;
-  height: 38px;
-  border: 1px solid #9b9b9b;
-  border-radius: 3px;
-  color: #9b9b9b;
-  font-size: 10px;
-  transition: all 0.2s ease-out;
-  margin-bottom: 5px;
-}
-.input__label:focus-within {
-  border: 1px solid #bebebe;
-  color: #bebebe;
-}
-</style>
