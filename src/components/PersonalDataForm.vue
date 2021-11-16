@@ -1,17 +1,13 @@
 <template>
   <VFormGroup title="Личные данные">
     <div class="d-flex">
-      <VInput v-model="personalData.lastName" label="Фамилия" type="text" />
-      <VInput v-model="personalData.firsName" label="Имя" type="text" />
-      <VInput v-model="personalData.patronymic" label="Отчество" type="text" />
+      <VInput v-model="personalData.lastName" label="Фамилия" type="text" rule="russian" />
+      <VInput v-model="personalData.firsName" label="Имя" type="text" rule="russian" />
+      <VInput v-model="personalData.patronymic" label="Отчество" type="text" rule="russian" />
     </div>
-    <VInput v-model="personalData.birthDay" label="Дата рождения" type="date" />
-    <VInput v-model="personalData.email" label="E-mail" type="email" />
-    <VRadio
-      v-model="personalData.gender"
-      :options="genderOptions"
-      title="Пол"
-    />
+    <VInput v-model="personalData.birthDay" label="Дата рождения" type="date" rule="date" />
+    <VInput v-model="personalData.email" label="E-mail" type="email" rule="email" />
+    <VRadio v-model="personalData.gender" :options="genderOptions" title="Пол" />
   </VFormGroup>
 </template>
 <script>

@@ -1,26 +1,20 @@
 <template>
   <VFormGroup title="Паспортные данные">
-    <VSelect
-      v-model="passportData.citizenship"
-      :options="citizenshipsOptions"
-      label="Гражданство"
-    />
+    <VSelect v-model="passportData.citizenship" :options="citizenshipsOptions" label="Гражданство" />
     <div v-if="isRussian || !passportData.citizenship" class="d-flex">
       <VInput
         v-model="passportData.passportSerialNumber"
         label="Серия паспорта"
         type="number"
+        rule="number|min:4|max:4"
       />
       <VInput
         v-model="passportData.passportNumber"
         label="Номер паспорта"
         type="number"
+        rule="number|min:6|max:6"
       />
-      <VInput
-        v-model="passportData.passportReleaseDate"
-        label="Дата рождения"
-        type="date"
-      />
+      <VInput v-model="passportData.passportReleaseDate" label="Дата рождения" type="date" />
     </div>
     <template v-else>
       <div class="d-flex">
@@ -28,21 +22,22 @@
           v-model="passportData.latinLastName"
           label="Фамилия на латинице"
           type="text"
+          rule="latin"
         />
         <VInput
           v-model="passportData.latinFirstName"
           label="Имя на латинице"
           type="text"
+          rule="latin"
         />
       </div>
-      <p class="footnote">
-        Иностранцы заполняют латинскими буквами. Например, Ivanov Ivan.
-      </p>
+      <p class="footnote">Иностранцы заполняют латинскими буквами. Например, Ivanov Ivan.</p>
       <div class="d-flex">
         <VInput
           v-model="passportData.passportNumber"
           label="Номер паспорта"
           type="number"
+          rule="number|min:6|max:6"
         />
         <VSelect
           v-model="passportData.passportReleaseCountry"

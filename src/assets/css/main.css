@@ -157,3 +157,10 @@
   background: #87cefa;
   color: #fff;
 }
+
+/* validation */
+
+.error {
+  border: 1px solid red;
+  color: red;
+}
