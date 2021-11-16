@@ -14,7 +14,7 @@
         type="number"
         rule="number|min:6|max:6"
       />
-      <VInput v-model="passportData.passportReleaseDate" label="Дата рождения" type="date" />
+      <VInput v-model="passportData.passportReleaseDate" label="Дата выдачи" type="date" />
     </div>
     <template v-else>
       <div class="d-flex">
