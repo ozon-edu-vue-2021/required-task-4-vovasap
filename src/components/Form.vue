@@ -11,8 +11,8 @@
       title="Меняли ли фамилию или имя?"
     />
     <div v-if="isChangedName" class="d-flex">
-      <VInput v-model="prevLastName" label="Фамилия" type="text" />
-      <VInput v-model="prevFirstName" label="Имя" type="text" />
+      <VInput v-model="prevLastName" label="Фамилия" type="text" rule="russian" />
+      <VInput v-model="prevFirstName" label="Имя" type="text" rule="russian" />
     </div>
     <input class="button__input" value="Отправить" type="submit" />
   </form>
@@ -43,7 +43,7 @@ export default {
       passportData: {
         citizenship: null,
         passportSerialNumber: null,
-        passportNumber: null,
+        passportNumber: null, 
         passportReleaseDate: '',
         passportReleaseCountry: '',
         passportType: null,
